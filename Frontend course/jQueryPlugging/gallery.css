@@ -1,0 +1,96 @@
+.firstrow {
+  display: flex;
+}
+.secondrow {
+  display: flex;
+}
+
+.img1 {
+  flex: 0.666016;
+}
+.img2 {
+  flex: 0.673828;
+}
+.img3 {
+  flex: 0.654297;
+}
+.img4 {
+  flex: 1.268897;
+}
+.img5 {
+  flex: 1.500366;
+}
+.img6 {
+  flex: 1.500366;
+}
+.img7 {
+  flex: 1.5;
+}
+.firstrow > * > img {
+  width: 100%;
+  height: auto;
+  vertical-align: middle;
+}
+.secondrow > * > img {
+  width: 100%;
+  height: auto;
+  vertical-align: middle;
+}
+.intro img {
+  width: 30%;
+  height: 30%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 100px;
+  padding-bottom: 80px;
+}
+.intro > img:hover {
+  animation: shake 2s;
+  animation-iteration-count: infinite;
+}
+@keyframes shake {
+  0% {
+    transform: translate(1px, 1px) rotate(0deg);
+  }
+  10% {
+    transform: translate(-1px, -2px) rotate(90deg);
+  }
+  20% {
+    transform: translate(-3px, 0px) rotate(180deg);
+  }
+  30% {
+    transform: translate(3px, 2px) rotate(270deg);
+  }
+  40% {
+    transform: translate(1px, -1px) rotate(330deg);
+  }
+  50% {
+    transform: translate(-1px, 2px) rotate(340deg);
+  }
+  60% {
+    transform: translate(-3px, 1px) rotate(355deg);
+  }
+  70% {
+    transform: translate(3px, 1px) rotate(357deg);
+  }
+  80% {
+    transform: translate(-1px, -1px) rotate(360deg);
+  }
+  90% {
+    transform: translate(1px, 2px) rotate(360deg);
+  }
+  100% {
+    transform: translate(1px, -2px) rotate(360deg);
+  }
+}
+
+.gallery a img {
+  height: 100%;
+  transform: scale(1, 1);
+  transition: all 300ms ease;
+}
+
+.gallery a img:hover {
+  transform: scale(1.1, 1.1);
+}

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>HTML exercises</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <form>
+      <p>First name</p>
+      <input type="text" name="FirstName" value="John" />
+      <p>Last name</p>
+      <input type="text" name="LastName" value="Johnson" />
+      <p>Date of Birth</p>
+      <input type="date" name="birthday" placeholder="16/11/2017" />
+      <p>Gender</p>
+      <select name="gender">
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+      </select>
+      <p>Email</p>
+      <input
+        type="email"
+        id="email"
+        pattern=".+@globex.com"
+        size="30"
+        required
+        placeholder="j.johnson@gmail.com"
+      />
+      <p>Homepage</p>
+      <input
+        type="url"
+        name="homepage"
+        id="homepage"
+        placeholder="www.johnjohnsons.net"
+        pattern="https://.*"
+        size="30"
+        required
+      />
+      <p>Favorite Color</p>
+      <input type="color" id="Color" name="Color" value="#50ad55" />
+      <input type="submit" value="Save" />
+    </form>
+  </body>
+</html>

@@ -1,0 +1,36 @@
+Exercise 1.
+By using jQuery
+a.) How you can select all <p>- elements?
+$("p")
+b.) How you can select the first <p>- element?
+$("p:first")
+c.) How you can select <p>-elements with id=’info’?
+$("p#info")
+
+Exercise 2.
+By using jQuery
+a.) How you can change the text in paragraph element?
+$("p").text()
+b.) How you can append to paragraph element?
+$( "p" ).append( "<p></p>" );
+c.) How you can change paragraph element’s textcolor to red?
+$(p).css('color', 'red');
+
+Exercise 3.
+By using jQuery
+a.) How you add listener to the first <p>-elements which hides the element when you click it.
+$("p:first").click(function(){
+  $("p:first").hide();
+});
+b.) How you add listener to the all <p>-elements which hides them when you double click these.
+$("p").dbclick(function(){
+  $("p").hide();
+});
+c.) How you add listener to button which hides all <p>-elements and change button text to
+’Pressed
+$("button").click(function(){
+  $("p").hide();
+  $("button").text("Pressed);
+});
+d.) How you add listener to button which opens alert window and show the text from the first <p>-
+element in it.

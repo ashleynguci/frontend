@@ -1,0 +1,12 @@
+table {
+  width: 95%;
+  border-collapse: collapse;
+}
+td,
+th {
+  border-bottom: 1px solid lightgray;
+  text-align: left;
+}
+th {
+  background-color: moccasin;
+}

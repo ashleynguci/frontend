@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>React getting started</title>
+  </head>
+  <body>
+    <!-- Root container for react components -->
+    <div id="root"></div>
+
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
+
+    <script type="text/babel">
+      class RestWeather extends React.Component {
+        constructor(props) {
+          super(props);
+          this.state = {
+            cityname: "",
+            temperature: "",
+            description: "",
+            imgurl: ""
+          };
+        }
+        componentDidMount() {
+          fetch(
+            "https://api.openweathermap.org/data/2.5/weather?q=London&APPID=a3d0f4ad8ecaa745eae991cea37b35e4&units=metric"
+          )
+            .then(response => response.json())
+            .then(responseData => {
+              console.log(responseData);
+              this.setState({
+                cityname: responseData.name,
+                temperature: responseData.main.temp,
+                description: responseData.weather[0].description,
+                imgurl: responseData.weather[0].icon
+              });
+            });
+        }
+
+        render() {
+          var icon =
+            "http://openweathermap.org/img/w/" + this.state.imgurl + ".png";
+
+          return (
+            <div>
+              <div>City name: {this.state.cityname}</div>
+              <div>Temperature: {this.state.temperature} Celcius</div>
+              <div>Weather: {this.state.description} </div>
+              <div>
+                <img src={icon} />
+              </div>
+            </div>
+          );
+        }
+      }
+
+      ReactDOM.render(<RestWeather />, document.getElementById("root"));
+    </script>
+  </body>
+</html>

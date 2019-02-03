@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+      integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+      crossorigin="anonymous"
+    />
+
+    <title>Page jQuery</title>
+  </head>
+  <body>
+    <div class="container mt-3">
+      <p class="col-md-8 chap1">
+        <span class="h6">Chapter 1.</span>Lorem ipsum dolor sit amet consectetur
+        adipisicing elit. Impedit sapiente debitis cum unde, voluptatem eveniet
+        porro velit, eius labore exercitationem ipsa inventore quidem
+        perferendis distinctio corrupti excepturi molestiae. In, assumenda. orem
+        ipsum dolor sit amet consectetur adipisicing elit. Impedit sapiente
+        debitis cum unde, voluptatem eveniet porro velit, eius labore
+        exercitationem ipsa inventore quidem perferendis distinctio corrupti
+        excepturi molestiae. In, assumenda.
+      </p>
+      <p class="col-md-8 chap2">
+        <span class="h6">Chapter 2.</span>Lorem ipsum dolor sit amet consectetur
+        adipisicing elit. Impedit sapiente debitis cum unde, voluptatem eveniet
+        porro velit, eius labore exercitationem ipsa inventore quidem
+        perferendis distinctio corrupti excepturi molestiae. In, assumenda. orem
+        ipsum dolor sit amet consectetur adipisicing elit. Impedit sapiente
+        debitis cum unde, voluptatem eveniet porro velit, eius labore
+        exercitationem ipsa inventore quidem perferendis distinctio corrupti
+        excepturi molestiae. In, assumenda.
+      </p>
+      <button
+        type="button"
+        class="btn btn-secondary col-md-2 mx-5 toggleFunction"
+      >
+        Toggle Chapter 1
+      </button>
+      <button
+        type="button"
+        class="btn btn-secondary col-md-2 mx-5 fadeFunction"
+      >
+        Fade out both
+      </button>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+      integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+      integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      $(document).ready(function() {
+        $(".toggleFunction").click(function() {
+          $(".chap1").toggle();
+        });
+        $(".fadeFunction").click(function() {
+          $(".chap1").fadeToggle("slow", "linear");
+          $(".chap2").fadeToggle("slow", "linear");
+        });
+      });
+    </script>
+  </body>
+</html>

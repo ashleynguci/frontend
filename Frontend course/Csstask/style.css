@@ -1,0 +1,23 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto");
+body {
+  background-image: url("bg.png");
+}
+h1,
+h3 {
+  color: red;
+  text-transform: uppercase;
+}
+a {
+  text-transform: uppercase;
+  text-decoration: none;
+}
+ul {
+  list-style: none;
+}
+figcaption {
+  color: darkblue;
+}
+section {
+  font-family: "Roboto", sans-serif;
+  margin-left: 5%;
+}

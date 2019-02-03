@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Using jquery</title>
+    <meta charset="utf-8" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <button type="button" class="btn btn-info p-3 result">
+        Feed me some numbers
+      </button>
+      <div class="form-row mt-3">
+        <div class="form-group col-md-4">
+          <input type="text" class="form-control" id="first" />
+        </div>
+
+        <div class="form-group col-md-4">
+          <input type="text" class="form-control" id="second" />
+        </div>
+      </div>
+      <button type="button" class="btn btn-secondary btn-sm plus">+</button>
+      <button type="button" class="btn btn-secondary btn-sm minus">-</button>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+
+    <script>
+      $(document).ready(function() {
+        // Insert your code here
+
+        $(".plus").click(function() {
+          var a = parseFloat($("#first").val());
+          var b = parseFloat($("#second").val());
+          var result = (a + b).toFixed(2);
+          $(".result").html("Result = " + result);
+        });
+        $(".minus").click(function() {
+          var a = parseFloat($("#first").val());
+          var b = parseFloat($("#second").val());
+          var result = (a - b).toFixed(2);
+
+          $(".result").html("Result = " + result);
+        });
+      });
+    </script>
+  </body>
+</html>

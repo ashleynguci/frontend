@@ -1,0 +1,14 @@
+input {
+  width: 97%;
+  padding: 4px;
+  margin: 10px;
+}
+select {
+  width: 95%;
+  padding: 4px;
+  margin: 10px 10px;
+}
+input[type="submit"] {
+  padding: 0px;
+  width: 40px;
+}
