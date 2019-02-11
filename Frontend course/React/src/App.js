@@ -9,8 +9,7 @@ class App extends Component {
   }
   inputChange = event => {
     this.setState({
-      description: event.target.value,
-      date: event.target.value
+      description: event.target.value
     });
   };
   inputChanged = event => {
@@ -18,6 +17,11 @@ class App extends Component {
       date: event.target.value
     });
   };
+  deleteFunction(index) {
+    this.setState({
+      items: this.state.items.filter((item, i) => i !== index)
+    });
+  }
   submitForm = event => {
     event.preventDefault();
     const newTodo = {
@@ -58,8 +62,30 @@ class App extends Component {
             </fieldset>
           </form>
         </div>
-
-        <TodoTable items={this.state.items} />
+        <table style={{ alignItems: "center" }}>
+          <thead>
+            <tr>
+              <th>Description</th>
+              <th>Date</th>
+              <th />
+            </tr>
+          </thead>
+          <tbody>
+            {this.state.items.map((item, index) => (
+              <tr key={index}>
+                <td>{item.description}</td>
+                <td>{item.date}</td>
+                <td>
+                  <input
+                    type="button"
+                    value="Delete"
+                    onClick={this.deleteFunction}
+                  />
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
     );
   }

@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+/*import React, { Component } from "react";
 import ReactTable from "react-table";
 import "react-table/react-table.css";
 import "./App.css";
@@ -13,6 +13,11 @@ class TodoTable extends Component {
       {
         Header: "Description",
         accessor: "description"
+      },
+      {
+        Header: "",
+        id:"delete",
+        render:({row})=> (<button onClick={(e)=>)
       }
     ];
 
@@ -29,4 +34,4 @@ class TodoTable extends Component {
   }
 }
 
-export default TodoTable;
+export default TodoTable;*/
