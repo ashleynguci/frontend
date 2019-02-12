@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Infraction fine</title>
+    <link rel="stylesheet" type="text/css" href="06.09.css" />
+  </head>
+
+  <body>
+    <h1>Infraction fine</h1>
+
+    <form>
+      <p>
+        <label>Driving Speed: </label>
+        <input type="text" id="txtDrivingSpeed" size="3" />
+      </p>
+      <p>
+        <label>Speed limit: </label>
+        <input type="text" id="txtSpeedLimit" size="3" />
+      </p>
+      <p>
+        <input
+          type="button"
+          value="Tell about the ticket"
+          onClick="tellInfractionFine();"
+        />
+      </p>
+    </form>
+
+    <!-- This is the target where the JavaScript code will write the answer -->
+    <div id="divAnswer"></div>
+
+    <script src="06.08.js"></script>
+  </body>
+</html>
+
+<!-- Test examples:
+drivingSpeed = 120, speedLimit = 120 -> No speeding, no fine
+drivingSpeed = 65, speedLimit = 60 -> Infraction fine is 85 euros.
+drivingSpeed = 77, speedLimit = 60 -> Infraction fine is 115 euros.
+drivingSpeed = 105, speedLimit = 100 -> Infraction fine is 70 euros.
+drivingSpeed = 117, speedLimit = 100 -> Infraction fine is 100 euros.
+drivingSpeed = 121, speedLimit = 100 -> Income-based unit fines.
+-->
