@@ -17,13 +17,13 @@ class App extends Component {
       date: event.target.value
     });
   };
-  // deleteFunction = event => {
-  //   console.dir(this.state.items.filter((item, i) => i !== event.target.id));
-  //   this.setState({
-  //     items: this.state.items.filter((item, i) => i != event.target.id)
-  //     // != not !== because of different type,and event.target.id is string as always
-  //   });
-  // };
+  deleteFunction = event => {
+    console.dir(this.state.items.filter((item, i) => i !== event.target.id));
+    this.setState({
+      items: this.state.items.filter((item, i) => i != event.target.id)
+      // != not !== because of different type,and event.target.id is string as always
+    });
+  };
   submitForm = event => {
     event.preventDefault();
     const newTodo = {

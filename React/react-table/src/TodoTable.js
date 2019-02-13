@@ -15,17 +15,16 @@ class TodoTable extends Component {
         accessor: "description"
       },
       {
-        Header: "",
-        accessor: "_links.self.href",
-        Cell: ({ value }) => (
-          <input
-            onClick={() => {
-              this.comfirmDelete(value);
-            }}
-          >
-            Delete
-          </input>
-        )
+        Header: ""
+        // accessor: "_links.self.href",
+        // Cell: ({ value }) => (
+        //   <input
+        //     onClick={() => {
+        //       this.comfirmDelete(value);
+        //     }}
+        //   >
+        //     Delete
+        //   </input>
       }
     ];
 
