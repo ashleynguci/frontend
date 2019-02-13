@@ -1,5 +1,5 @@
 # frontend
-Teacher: **Juha Hinkula
+Teacher: **Juha Hinkula**
 
 
 7.1. HTML & CSS </br>
@@ -9,7 +9,7 @@ Teacher: **Juha Hinkula
 14.2. React.js / Frantic company visit</br>
 21.2. No lectures</br>
 28.2. Exam</br>
-7.3. React.js router & & Material U</br>I </br>
+7.3. React.js router & & Material UI</br> </br>
 14.3. Back & Front End</br>
 21.3. Intensive week / no lectures</br>
 28.3. Back & Front End</br>
