@@ -42,17 +42,20 @@
         render() {
           var icon =
             "http://openweathermap.org/img/w/" + this.state.imgurl + ".png";
-
-          return (
-            <div>
-              <div>City name: {this.state.cityname}</div>
-              <div>Temperature: {this.state.temperature} Celcius</div>
-              <div>Weather: {this.state.description} </div>
+          if (this.state.imgurl !== "") {
+            return (
               <div>
-                <img src={icon} />
+                <div>City name: {this.state.cityname}</div>
+                <div>Temperature: {this.state.temperature} Celcius</div>
+                <div>Weather: {this.state.description} </div>
+                <div>
+                  <img src={icon} />
+                </div>
               </div>
-            </div>
-          );
+            );
+          } else {
+            return <div />;
+          }
         }
       }
 

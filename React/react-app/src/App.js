@@ -17,11 +17,13 @@ class App extends Component {
       date: event.target.value
     });
   };
-  deleteFunction(index) {
+  deleteFunction = event => {
+    console.dir(this.state.items.filter((item, i) => i !== event.target.id));
     this.setState({
-      items: this.state.items.filter((item, i) => i !== index)
+      items: this.state.items.filter((item, i) => i != event.target.id)
+      // != not !== because of different type,and event.target.id is string as always
     });
-  }
+  };
   submitForm = event => {
     event.preventDefault();
     const newTodo = {
@@ -77,6 +79,7 @@ class App extends Component {
                 <td>{item.date}</td>
                 <td>
                   <input
+                    id={index}
                     type="button"
                     value="Delete"
                     onClick={this.deleteFunction}
