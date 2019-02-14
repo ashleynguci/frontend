@@ -1,37 +1,32 @@
-/*import React, { Component } from "react";
+import React, { Component } from "react";
 import ReactTable from "react-table";
 import "react-table/react-table.css";
 import "./App.css";
 
-class TodoTable extends Component {
-  render() {
-    const columns = [
-      {
-        Header: "Date",
-        accessor: "date" // String-based value accessors!
-      },
-      {
-        Header: "Description",
-        accessor: "description"
-      },
-      {
-        Header: "",
-        id:"delete",
-        render:({row})=> (<button onClick={(e)=>)
-      }
-    ];
+const TodoTable = props => {
+  const items = props.items.map((item, index) => (
+    <tr key={index}>
+      <td>{item.date}</td>
+      <td>{item.description}</td>
+      <td>
+        <button onClick={() => props.delete(index)}>Delete</button>
+      </td>
+    </tr>
+  ));
 
-    return (
-      <div className="App">
-        <ReactTable
-          data={this.props.items}
-          columns={columns}
-          sortable="true"
-          defaultPageSize="10"
-        />
-      </div>
-    );
-  }
-}
+  return (
+    <div>
+      <table>
+        <tbody>
+          <tr>
+            <th>Date</th>
+            <th>Description</th>
+          </tr>
+          {items}
+        </tbody>
+      </table>
+    </div>
+  );
+};
 
-export default TodoTable;*/
+export default TodoTable;

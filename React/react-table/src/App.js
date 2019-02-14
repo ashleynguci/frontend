@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import TodoTable from "./TodoTable";
+import TodoTable from "./Components/TodoTable";
 import "./App.css";
 
 class App extends Component {
@@ -7,23 +7,19 @@ class App extends Component {
     super(props);
     this.state = { date: "", description: "", items: [] };
   }
-  inputChange = event => {
-    this.setState({
-      description: event.target.value
-    });
-  };
+
   inputChanged = event => {
     this.setState({
-      date: event.target.value
+      [event.target.name]: event.target.value
     });
   };
-  deleteFunction = event => {
-    console.dir(this.state.items.filter((item, i) => i !== event.target.id));
-    this.setState({
-      items: this.state.items.filter((item, i) => i != event.target.id)
-      // != not !== because of different type,and event.target.id is string as always
-    });
-  };
+  // deleteFunction = event => {
+  //   console.dir(this.state.items.filter((item, i) => i !== event.target.id));
+  //   this.setState({
+  //     items: this.state.items.filter((item, i) => i != event.target.id)
+  //     // != not !== because of different type,and event.target.id is string as always
+  //   });
+  // };
   submitForm = event => {
     event.preventDefault();
     const newTodo = {
@@ -48,13 +44,14 @@ class App extends Component {
               <legend>New todo:</legend>
               Description:
               <input
+                name="description"
                 type="text"
                 value={this.state.description}
-                onChange={this.inputChange}
+                onChange={this.inputChanged}
               />
               Date:
               <input
-                type="text"
+                type="date"
                 placeholder="dd.mm.yyyy"
                 name="date"
                 onChange={this.inputChanged}

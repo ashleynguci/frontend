@@ -7,21 +7,14 @@ class App extends Component {
     super(props);
     this.state = { date: "", description: "", items: [] };
   }
-  inputChange = event => {
-    this.setState({
-      description: event.target.value
-    });
-  };
+  // inputChange = event => {
+  //   this.setState({
+  //     description: event.target.value
+  //   });
+  // };
   inputChanged = event => {
     this.setState({
-      date: event.target.value
-    });
-  };
-  deleteFunction = event => {
-    console.dir(this.state.items.filter((item, i) => i !== event.target.id));
-    this.setState({
-      items: this.state.items.filter((item, i) => i != event.target.id)
-      // != not !== because of different type,and event.target.id is string as always
+      [event.target.name]: event.target.value
     });
   };
   submitForm = event => {
@@ -36,6 +29,14 @@ class App extends Component {
       items: [...this.state.items, newTodo]
     });
   };
+  deleteFunction = row => {
+    // console.dir(this.state.items.filter((item, i) => i !== event.target.id));
+    this.setState({
+      items: this.state.items.filter((item, i) => i !== row)
+      // != not !== because of different type,and event.target.id is string as always
+    });
+  };
+
   render() {
     return (
       <div className="App">
@@ -49,12 +50,13 @@ class App extends Component {
               Description:
               <input
                 type="text"
+                name="description"
                 value={this.state.description}
-                onChange={this.inputChange}
+                onChange={this.inputChanged}
               />
               Date:
               <input
-                type="text"
+                type="date"
                 placeholder="dd.mm.yyyy"
                 name="date"
                 onChange={this.inputChanged}
@@ -64,7 +66,8 @@ class App extends Component {
             </fieldset>
           </form>
         </div>
-        <table style={{ alignItems: "center" }}>
+        <TodoTable items={this.state.items} delete={this.deleteFunction} />
+        {/* <table style={{ alignItems: "center" }}>
           <thead>
             <tr>
               <th>Description</th>
@@ -88,7 +91,7 @@ class App extends Component {
               </tr>
             ))}
           </tbody>
-        </table>
+        </table> */}
       </div>
     );
   }

@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import ReactTable from "react-table";
 import "react-table/react-table.css";
-import "./App.css";
 
 class TodoTable extends Component {
   render() {
@@ -16,15 +15,6 @@ class TodoTable extends Component {
       },
       {
         Header: ""
-        // accessor: "_links.self.href",
-        // Cell: ({ value }) => (
-        //   <input
-        //     onClick={() => {
-        //       this.comfirmDelete(value);
-        //     }}
-        //   >
-        //     Delete
-        //   </input>
       }
     ];
 
@@ -33,8 +23,8 @@ class TodoTable extends Component {
         <ReactTable
           data={this.props.items}
           columns={columns}
-          sortable="true"
-          defaultPageSize="10"
+          sortable={true}
+          defaultPageSize={10}
         />
       </div>
     );
