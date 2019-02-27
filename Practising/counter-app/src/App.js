@@ -17,6 +17,7 @@ class App extends Component {
         this.state.counter < 0 ? this.state.counter : this.state.counter - 1
     });
   };
+/* condition for setState condition ? statement1 : Statement2 */
   reset = () => {
     this.setState({ counter: 0 });
   };
