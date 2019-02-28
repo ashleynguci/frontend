@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Github Repository list</title>
+  </head>
+  <body>
+    <!-- Root container for react components -->
+    <div id="root"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.6.1/react.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.6.1/react-dom.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
+
+    <script type="text/babel">
+      class Repo extends React.Component {
+        constructor(props) {
+          super(props);
+          this.state = { listItems: [] };
+        }
+
+        inputChanged = event => {
+          this.setState({ valuefrominput: event.target.value });
+        };
+        findFunction = event => {
+          event.preventDefault();
+          const url =
+            "https://api.github.com/search/repositories?q=" +
+            this.state.valuefrominput;
+          fetch(url)
+            .then(response => response.json())
+            .then(responseData => {
+              this.setState({
+                listItems: responseData.items
+              });
+            });
+        };
+
+        render() {
+          const itemRows = this.state.listItems.map((number, index) => (
+            <tr key={index}>
+              <td>{number.full_name}</td>
+              <td>{number.owner.html_url}</td>
+            </tr>
+          ));
+
+          return (
+            <div>
+              <form onSubmit={this.findFunction}>
+                <input
+                  type="text"
+                  onChange={this.inputChanged}
+                  value={this.state.valuefrominput}
+                />
+                <input type="submit" value="find" />
+              </form>
+              <h2>Repositories</h2>
+              <table>
+                <tbody>
+                  <tr>
+                    <th>Name</th>
+                    <th>URL</th>
+                  </tr>
+                  {itemRows}
+                </tbody>
+              </table>
+            </div>
+          );
+        }
+      }
+      ReactDOM.render(<Repo />, document.getElementById("root"));
+    </script>
+  </body>
+</html>
