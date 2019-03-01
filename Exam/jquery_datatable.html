@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Datatables CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css"
+    />
+
+    <title>Libraries</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1 id="head">Jquery Datatables</h1>
+      <table id="cartable" width="80%">
+        <thead>
+          <th>Nimi</th>
+          <th>Osoite</th>
+          <th>Kaupunki</th>
+        </thead>
+      </table>
+    </div>
+
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.min.js"
+      integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+
+    <script>
+      $(document).ready(function() {
+        $.get("https://api.kirjastot.fi/v4/library?limit=5000", function(
+          data,
+          status
+        ) {
+          $("#cartable").DataTable({
+            data: data.items,
+            columns: [
+              { data: "name" },
+              { data: "address.street" },
+              { data: "address.city" }
+            ]
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
