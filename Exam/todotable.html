@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Datatables CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css"
+    />
+
+    <title>Todo Table</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1 id="head">Todo Table</h1>
+      <table id="todotable" width="100%">
+        <thead>
+          <th>Id</th>
+          <th>Title</th>
+          <th>Complete</th>
+        </thead>
+      </table>
+    </div>
+
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.min.js"
+      integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+
+    <script>
+      $(document).ready(function() {
+        $.get("https://jsonplaceholder.typicode.com/todos", function(
+          data,
+          status
+        ) {
+          $("#todotable").DataTable({
+            data: data,
+            columns: [{ data: "id" }, { data: "title" }, { data: "completed" }]
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

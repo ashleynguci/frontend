@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+
+    <!-- nanogallery2 -->
+    <link
+      href="https://unpkg.com/nanogallery2@2.3.0/dist/css/nanogallery2.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+
+    <title>Image Gallery</title>
+  </head>
+
+  <!-- Body starts here -->
+  <body>
+    <div class="container">
+      <h1>My Gallery</h1>
+
+      <!-- ### position of the gallery ### -->
+      <div id="nanogallery2"></div>
+    </div>
+
+    <!-- End of HTML code -->
+    <!-- Optional JavaScript -->
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://unpkg.com/nanogallery2@2.3.0/dist/jquery.nanogallery2.min.js"></script>
+
+    <script>
+      $(document).ready(function() {
+        $("#nanogallery2").nanogallery2({
+          //  ### gallery settings ###
+          thumbnailHeight: 150,
+          thumbnailWidth: 150,
+          itemsBaseURL:
+            "http://myy.haaga-helia.fi/~bgh788/FrontEnd/js_jquery/jquery_plugin_exercises/images/",
+
+          //  ### gallery content ###
+          items: [
+            {
+              src: "1.jpg",
+              srct: "1.jpg",
+
+              title: "Monkey"
+            },
+            {
+              src: "2.jpg",
+              srct: "2.jpg",
+
+              title: "Monkey"
+            },
+            {
+              src: "3_large.jpg",
+              srct: "3_small.jpg",
+
+              title: "Monkey"
+            },
+            {
+              src: "4_large.jpg",
+              srct: "4_small.jpg",
+
+              title: "Monkey"
+            },
+            {
+              src: "5_large.jpg",
+              srct: "5_small.jpg",
+
+              title: "Monkey"
+            },
+            {
+              src: "6_large.jpg",
+              srct: "6_small.jpg",
+
+              title: "Monkey"
+            },
+
+            // album 1
+            {
+              src: "1.jpg", // image url
+              srct: "1.jpg", // thumbnail url
+              title: "Monkey album", // item title
+              ID: 1, // item ID
+              kind: "album" // item kind
+            },
+            {
+              src: "1.jpg",
+              srct: "1.jpg",
+              title: "Monkey 1",
+              ID: 10,
+              albumID: 1
+            },
+            {
+              src: "2.jpg",
+              srct: "2.jpg",
+              title: "Monkey 2",
+              ID: 11,
+              albumID: 1
+            },
+            {
+              src: "3_large.jpg",
+              srct: "3_small.jpg",
+              title: "Monkey 3",
+              ID: 12,
+              albumID: 1
+            },
+            {
+              src: "4_large.jpg",
+              srct: "4_small.jpg",
+              title: "Monkey 4",
+              ID: 13,
+              albumID: 1
+            },
+            {
+              src: "5_large.jpg",
+              srct: "5_small.jpg",
+              title: "Monkey 5",
+              ID: 14,
+              albumID: 1
+            },
+            {
+              src: "6_large.jpg",
+              srct: "6_small.jpg",
+              title: "Monkey 6",
+              ID: 15,
+              albumID: 1
+            }
+          ]
+        });
+      });
+    </script>
+  </body>
+</html>
