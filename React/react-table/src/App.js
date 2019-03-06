@@ -13,13 +13,7 @@ class App extends Component {
       [event.target.name]: event.target.value
     });
   };
-  deleteFunction = event => {
-    console.dir(this.state.items.filter((item, i) => i !== event.target.id));
-    this.setState({
-      items: this.state.items.filter((item, i) => i != event.target.id)
-      // != not !== because of different type,and event.target.id is string as always
-    });
-  };
+
   submitForm = event => {
     event.preventDefault();
     const newTodo = {
@@ -30,6 +24,14 @@ class App extends Component {
       date: "",
       description: "",
       items: [...this.state.items, newTodo]
+    });
+  };
+  deleteFunction = event => {
+    event.preventDefault();
+    // console.dir(this.state.items.filter((item, i) => i != event.target.id));
+    this.setState({
+      items: this.state.items.filter((item, i) => i != event.target.id)
+      // != not !== because of different type,and event.target.id is string as always
     });
   };
   render() {
@@ -61,7 +63,10 @@ class App extends Component {
             </fieldset>
           </form>
         </div>
-        <TodoTable items={this.state.items} />
+        <TodoTable
+          items={this.state.items}
+          deleteFunction={this.deleteFunction}
+        />
       </div>
     );
   }
