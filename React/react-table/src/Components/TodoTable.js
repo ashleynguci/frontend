@@ -14,7 +14,17 @@ class TodoTable extends Component {
         accessor: "description"
       },
       {
-        Header: ""
+        Header: "",
+        Cell: row => {
+          return (
+            <button
+              id={row.index}
+              onClick={event => this.props.deleteFunction(event)}
+            >
+              Delete
+            </button>
+          );
+        }
       }
     ];
 
