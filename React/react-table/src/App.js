@@ -1,6 +1,11 @@
 import React, { Component } from "react";
 import TodoTable from "./Components/appa";
 import "./App.css";
+import AppBar from "@material-ui/core/AppBar";
+import Toolbar from "@material-ui/core/Toolbar";
+import Button from "@material-ui/core/Button";
+import SaveIcon from "@material-ui/icons/Save";
+import TextField from "@material-ui/core/TextField";
 
 class App extends Component {
   constructor(props) {
@@ -36,29 +41,40 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <p>Todo list</p>
-        </header>
+        <AppBar position="static">
+          <Toolbar>TODO TABLE</Toolbar>
+        </AppBar>
         <div>
           <form onSubmit={this.submitForm}>
             <fieldset>
               <legend>New todo:</legend>
-              Description:
-              <input
+
+              <TextField
+                label="description"
                 name="description"
                 type="text"
                 value={this.state.description}
                 onChange={this.inputChanged}
               />
-              Date:
-              <input
+
+              <TextField
+                label="date"
                 type="date"
                 placeholder="dd.mm.yyyy"
                 name="date"
                 onChange={this.inputChanged}
                 value={this.state.date}
+                InputLabelProps={{ shrink: true }}
               />
-              <input type="submit" value="Add" />
+              <Button
+                variant="contained"
+                color="primary"
+                type="submit"
+                value="Add"
+              >
+                Add
+                <SaveIcon />
+              </Button>
             </fieldset>
           </form>
         </div>
