@@ -4,7 +4,7 @@ import "react-table/react-table.css";
 import Button from "@material-ui/core/Button";
 import AddCar from "./AddCar";
 import Snackbar from "@material-ui/core/Snackbar";
-
+import EditCar from "./EditCar";
 export default class componentName extends Component {
   constructor(props) {
     super(props);
@@ -54,6 +54,14 @@ export default class componentName extends Component {
       { Header: "Price", accessor: "price" },
       { Header: "Color", accessor: "color" },
       { Header: "Fuel", accessor: "fuel" },
+      {
+        Header: "",
+        accessor: "_links.self.href",
+        filterable: "false",
+        sortable: "false",
+        width: 100,
+        Cell: ({ value, row }) => <EditCar link={value} car={row} />
+      },
       {
         Header: "",
         accessor: "_links.self.href",
