@@ -52,7 +52,7 @@ export default class componentName extends Component {
           onClose={this.handleClose}
           aria-labelledby="form-dialog-title"
         >
-          <DialogTitle id="form-dialog-title">Subscribe</DialogTitle>
+          <DialogTitle id="form-dialog-title">Add New Car</DialogTitle>
           <DialogContent>
             <TextField
               onChange={this.handleChange}

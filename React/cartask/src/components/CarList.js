@@ -8,7 +8,7 @@ import EditCar from "./EditCar";
 export default class componentName extends Component {
   constructor(props) {
     super(props);
-    this.state = { cars: [] };
+    this.state = { cars: [], message: "" };
   }
   componentDidMount() {
     // fetch("https://carstockrest.herokuapp.com/cars")
@@ -31,6 +31,18 @@ export default class componentName extends Component {
       .catch(err => console.error(err));
     console.log(carLink.original._links.self.href);
   };
+  updateCar = (link, updatedCar) => {
+    fetch(link, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(updatedCar)
+    })
+      .then(res => this.loadCars())
+      .then(res => this.setState({ open: true, message: "Updated new car" }))
+      .catch(err => console.error(err));
+  };
   saveCar = car => {
     fetch("https://carstockrest.herokuapp.com/cars", {
       method: "POST",
@@ -40,7 +52,7 @@ export default class componentName extends Component {
       body: JSON.stringify(car)
     })
       .then(res => this.loadCars())
-      .then(res => this.setState({ open: true }))
+      .then(res => this.setState({ open: true, message: "Added new  car" }))
       .catch(err => console.error(err));
   };
   handleClose = () => {
@@ -60,7 +72,9 @@ export default class componentName extends Component {
         filterable: "false",
         sortable: "false",
         width: 100,
-        Cell: ({ value, row }) => <EditCar link={value} car={row} />
+        Cell: ({ value, row }) => (
+          <EditCar updateCar={this.updateCar} link={value} car={row} />
+        )
       },
       {
         Header: "",
@@ -94,7 +108,7 @@ export default class componentName extends Component {
           ContentProps={{
             "aria-describedby": "message-id"
           }}
-          message="Car added successfully"
+          message={this.state.message}
         />
       </div>
     );

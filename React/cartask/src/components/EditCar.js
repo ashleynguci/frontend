@@ -39,7 +39,7 @@ export default class componentName extends Component {
     this.setState({ [event.target.id]: event.target.value });
   };
 
-  addCar = () => {
+  updateCar = () => {
     const newCar = {
       model: this.state.model,
       color: this.state.color,
@@ -48,7 +48,7 @@ export default class componentName extends Component {
       fuel: this.state.fuel,
       price: this.state.price
     };
-    this.props.saveCar(newCar);
+    this.props.updateCar(this.props.link, newCar);
     this.handleClose();
   };
 
@@ -60,7 +60,7 @@ export default class componentName extends Component {
           onClose={this.handleClose}
           aria-labelledby="form-dialog-title"
         >
-          <DialogTitle id="form-dialog-title">Subscribe</DialogTitle>
+          <DialogTitle id="form-dialog-title">Edit Car</DialogTitle>
           <DialogContent>
             <TextField
               onChange={this.handleChange}
@@ -118,7 +118,7 @@ export default class componentName extends Component {
             <Button onClick={this.handleClose} color="primary">
               Cancel
             </Button>
-            <Button onClick={this.addCar} color="primary">
+            <Button onClick={this.updateCar} color="primary">
               Save
             </Button>
           </DialogActions>
