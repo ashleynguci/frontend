@@ -5,6 +5,7 @@ import Button from "@material-ui/core/Button";
 import AddCar from "./AddCar";
 import Snackbar from "@material-ui/core/Snackbar";
 import EditCar from "./EditCar";
+import { CSVLink } from "react-csv";
 export default class componentName extends Component {
   constructor(props) {
     super(props);
@@ -92,6 +93,9 @@ export default class componentName extends Component {
     return (
       <div>
         <AddCar saveCar={this.saveCar} />
+        <CSVLink data={this.state.cars} separator={";"}>
+          Download CSV
+        </CSVLink>
         <ReactTable
           data={this.state.cars}
           columns={columns}
